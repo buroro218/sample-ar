@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Graduation AR</title>
+
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <!-- AR.js -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin:0; overflow:hidden;">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+    >
+
+      <a-entity camera></a-entity>
+
+      <a-entity id="group" visible="false">
+
+        <a-image
+          src="sign.png"
+          width="1"
+          height="1.6"
+          position="0 0 0"
+        ></a-image>
+
+        <a-image
+          src="sakura.png"
+          width="0.3"
+          height="0.3"
+          position="0 1.8 0"
+          animation="property: position; to: 0 0 0; dur: 6000; loop: true"
+        ></a-image>
+
+      </a-entity>
+
+    </a-scene>
+
+    <script>
+      window.addEventListener("click", () => {
+        const group = document.querySelector("#group");
+        group.setAttribute("position", "0 0 -1.5");
+        group.setAttribute("rotation", "-90 0 0");
+        group.setAttribute("visible", "true");
+      });
+    </script>
+
+  </body>
+</html>
