@@ -18,7 +18,7 @@
 
       <a-entity camera></a-entity>
 
-      <a-entity id="group" visible="false">
+      <a-entity id="group" visible="true">
 
         <a-image
           src="sign.png"
@@ -43,7 +43,7 @@
       window.addEventListener("click", () => {
         const group = document.querySelector("#group");
         group.setAttribute("position", "0 0 -1.5");
-        group.setAttribute("rotation", "-90 0 0");
+        group.setAttribute("position", "0 1.2 -1");
         group.setAttribute("visible", "true");
       });
     </script>
