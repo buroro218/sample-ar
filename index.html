@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <title>AR Test</title>
+  <meta charset="utf-8" />
+  <title>AR iPhone Test</title>
+
+  <!-- ★ これが重要（iPhone必須） -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
   <!-- AR.js -->
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
 </head>
 
-<body style="margin:0; overflow:hidden;">
-  <a-scene embedded arjs="sourceType: webcam;">
+<body>
+  <a-scene
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+    renderer="antialias: true; alpha: true;"
+  >
 
-    <!-- 確認用の赤い箱 -->
-    <a-box position="0 0.5 -1" color="red"></a-box>
+    <!-- ★ 確認用の赤い箱 -->
+    <a-box position="0 0.5 -1" depth="0.3" height="0.3" width="0.3" color="red"></a-box>
 
-    <a-camera></a-camera>
+    <!-- ★ iPhoneでは a-camera ではなくこれが安定 -->
+    <a-entity camera look-controls></a-entity>
+
   </a-scene>
 </body>
 </html>
+
